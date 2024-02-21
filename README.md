@@ -42,25 +42,24 @@ See [Setup documentation](docs/Setup.md) to know who to setup a Dana server and 
 This is not an official Google product
 
 ## Deployment
-
-### Login to Registry
-To push the Docker image to the registry, first login to the registry:
+### login to jfrog registry
+Run the following command:
 
 ```
 docker login dearreality.jfrog.io
 ```
-Username and password are in 1Pass for jfrog.
-Then build and push the image:
+Depending on the machine, use credentials from 1Pass or your own ones.
+
+### Build an push new image
 
 ```
-docker build -t dearreality.jfrog.io/dearreality/dana .  
-docker push dearreality.jfrog.io/dearreality/dana:latest
+docker build -t dearreality.jfrog.io/dearreality/whaler .  
+docker push dearreality.jfrog.io/dearreality/whaler:latest
 ```
 
 ### Deploy on penguin
 
-To deploy, follow all of the steps above (including push).
-Then, once the Docker image is `push`ed, login to `Penguin` and pull the newest image and re-launch the container.
+Login to `Penguin`, pull the newest image and re-launch the container.
 If there is an older version running on `Penguin`, stop and remove it with
 
 ```
